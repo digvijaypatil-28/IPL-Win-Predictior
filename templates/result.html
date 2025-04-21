@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IPL Match Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="{{ url_for('static', filename='ipl_logo.png') }}" alt="IPL Logo" class="logo">
+            <h1 class="result-title">🏏 Match Win Prediction Result</h1>
+        </header>
+        
+        <div class="result-box">
+            <p class="prediction-text">
+                <strong>{{ batting_team }}</strong> has a <strong>{{ prediction_percent }}%</strong> chance of winning the match!
+            </p>
+        </div>
+
+        <a href="{{ url_for('home') }}" class="back-button">🔙 Predict Another</a>
+    </div>
+</body>
+</html>

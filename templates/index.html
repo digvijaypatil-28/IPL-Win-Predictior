@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IPL Win Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🏏 IPL Win Predictor</h1>
+
+        <form action="/predict" method="POST">
+            <label for="batting_team">🏏 Batting Team:</label>
+            <select name="batting_team" required>
+                <option value="Chennai Super Kings">Chennai Super Kings</option>
+                <option value="Mumbai Indians">Mumbai Indians</option>
+                <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                <option value="Delhi Capitals">Delhi Capitals</option>
+                <option value="Rajasthan Royals">Rajasthan Royals</option>
+                <option value="Lucknow Super Giants">Lucknow Super Giants</option>
+                <option value="Punjab Kings">Punjab Kings</option>
+                <option value="Gujarat Titans">Gujarat Titans</option>
+            </select>
+
+            <label for="bowling_team">🎯 Bowling Team:</label>
+            <select name="bowling_team" required>
+                <option value="Chennai Super Kings">Chennai Super Kings</option>
+                <option value="Mumbai Indians">Mumbai Indians</option>
+                <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                <option value="Delhi Capitals">Delhi Capitals</option>
+                <option value="Rajasthan Royals">Rajasthan Royals</option>
+                <option value="Lucknow Super Giants">Lucknow Super Giants</option>
+                <option value="Punjab Kings">Punjab Kings</option>
+                <option value="Gujarat Titans">Gujarat Titans</option>
+            </select>
+
+            <label for="venue">📍 Match Venue (City):</label>
+            <select name="venue" required>
+                <option value="Durban">Durban</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Indore">Indore</option>
+                <option value="Pune">Pune</option>
+                <option value="Raipur">Raipur</option>
+                <option value="Centurion">Centurion</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Mohali">Mohali</option>
+                <option value="Bloemfontein">Bloemfontein</option>
+                <option value="Ranchi">Ranchi</option>
+                <option value="Johannesburg">Johannesburg</option>
+                <option value="Dharamsala">Dharamsala</option>
+                <option value="Bengaluru">Bengaluru</option>
+                <option value="Kimberley">Kimberley</option>
+                <option value="Nagpur">Nagpur</option>
+                <option value="Cuttack">Cuttack</option>
+                <option value="Visakhapatnam">Visakhapatnam</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Cape Town">Cape Town</option>
+                <option value="Abu Dhabi">Abu Dhabi</option>
+                <option value="Sharjah">Sharjah</option>
+                <option value="Port Elizabeth">Port Elizabeth</option>
+                <option value="East London">East London</option>
+            </select>
+
+            <label for="target">🎯 Target Runs:</label>
+            <input type="number" name="target" placeholder="e.g. 180" required>
+
+            <label for="runs_scored">🏃‍♂️ Runs Scored:</label>
+            <input type="number" name="runs_scored" placeholder="e.g. 90" required>
+
+            <label for="overs_completed">⏱ Overs Completed:</label>
+            <input type="number" name="overs_completed" step="0.1" placeholder="e.g. 10.2" required>
+
+            <label for="wickets_down">💥 Wickets Fallen:</label>
+            <input type="number" name="wickets_down" placeholder="e.g. 3" required>
+
+            <button type="submit">🔮 Predict Winner</button>
+        </form>
+
+        {% if prediction_result is defined %}
+    <div class="result">
+        <h2>🏆 Predicted Winner</h2>
+        <h1 class="team-name">{{ prediction_result }}</h1>
+    </div>
+{% endif %}
+    </div>
+</body>
+</html>
